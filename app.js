@@ -13,14 +13,16 @@ app.set("view engine","ejs")
 //SCHEMA SETUP
 var campgroundSchema = new mongoose.Schema({
   name:String,
-  image:String
+  image:String,
+  description:String
 });
 
 var Campground = mongoose.model("Campground",campgroundSchema);
 
 // Campground.create(
 //   {name: "Kandy", 
-//   image:"https://lanka.com/wp-content/uploads/2014/03/sri-dalada-maligawa-kandy-sri-lanka-8.jpg"
+//   image:"https://lanka.com/wp-content/uploads/2014/03/sri-dalada-maligawa-kandy-sri-lanka-8.jpg",
+//   description:"Best place to visit in central province."
 // },function(err,Campground){
 //     if(err){
 //       onsole.log(err);
@@ -49,7 +51,7 @@ Campground.find({},function(err,allCampgrounds){
   if(err){
      console.log(err);
   }else{
-  res.render("campgrounds",{campgrounds:allCampgrounds});
+  res.render("index",{campgrounds:allCampgrounds});
 
   }
 });
@@ -59,17 +61,19 @@ Campground.find({},function(err,allCampgrounds){
 app.post("/campgrounds",function(req,res){
   var name = req.body.name;
   var image = req.body.image;
-  var newCampGround = {name:name,image:image}
+  var desc = req.body.description;
+  var newCampGround = {name:name,image:image,description:desc}
   //create a new campground and save to DB
   Campground.create(newCampGround, function(err,newlyCreated){
    if(err){
      console.log(err);
    }else{
+      //redirect back to campgrounds page
      res.redirect("/campgrounds");
    }
   });
-  //redirect back to campgrounds page
-  res.redirect("/campgrounds");
+ 
+  
 });
 
 
@@ -80,6 +84,20 @@ res.render("new.ejs");
 });
 
 
+//Shows more information about campgrounds
+app.get("/campgrounds/:id",function(req,res){
+  //find the campgrounds with provided id
+  Campground.findById(req.params.id,function(err,foundCampground){
+if(err){
+  console.log(err);
+}else{
+ //render show template
+res.render("show",{campground:foundCampground});
+}
+  });
+
+  
+});
 
 app.listen(3000,function(){
  console.log("yeay");
