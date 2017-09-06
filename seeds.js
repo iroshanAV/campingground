@@ -7,17 +7,17 @@ var Comment = require("./models/comment");
 var data = [
     {
     name: "Matara",
-    image: "",
+    image: "https://i.ytimg.com/vi/cXKMMjWifaw/maxresdefault.jpg",
     description:"Best place to visit in south"
     },
     {
         name: "Bentota",
-        image:"",
+        image:"http://www.leisureisland.lk/assets/images/bentota1.jpg",
         description:"Amazing puppets"
     },
     {
         name: "Negambo",
-        image: "",
+        image: "http://holidaysinsrilanka.net/images/159-The_West_Coast___Negombo-154590-Main_banner-TWC-Negombo.jpg",
         description:"Good fish to buy"
     }
 ];
@@ -44,11 +44,12 @@ function seedDB(){
              },function(err,comment){
                    if(err){
                        console.log(err);
-                   }else{
-               campground.comments.push(comment);
-               campground.save();
-               console.log("Created a new comment");
-                       }
+                   }
+            //        else{
+            //    campground.comments.push(comment);
+            //    campground.save();
+            //    console.log("Created a new comment");
+            //            }
             
             });
          }
