@@ -2,22 +2,17 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose =require("mongoose");
+var Campground = require("./models/campground.js");
+var seedDB = require("./seeds");
+// var Comment = require("./models/comment.js");
+// var User = require("./models/user");
 
 
-
+seedDB();
 mongoose.connect("mongodb://help:help123@ds121674.mlab.com:21674/help_camo");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs")
 
-
-//SCHEMA SETUP
-var campgroundSchema = new mongoose.Schema({
-  name:String,
-  image:String,
-  description:String
-});
-
-var Campground = mongoose.model("Campground",campgroundSchema);
 
 // Campground.create(
 //   {name: "Kandy", 
@@ -31,13 +26,6 @@ var Campground = mongoose.model("Campground",campgroundSchema);
 //       console.log(Campground);
 //     }
 //   });
-
-
-
-
-
-
-
 
 
 
