@@ -8,11 +8,11 @@ var seedDB = require("./seeds");
 // var User = require("./models/user");
 
 
-seedDB();
+
 mongoose.connect("mongodb://help:help123@ds121674.mlab.com:21674/help_camo");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs")
-
+seedDB();
 
 // Campground.create(
 //   {name: "Kandy", 
@@ -39,7 +39,7 @@ Campground.find({},function(err,allCampgrounds){
   if(err){
      console.log(err);
   }else{
-  res.render("index",{campgrounds:allCampgrounds});
+  res.render("campgrounds/index",{campgrounds:allCampgrounds});
 
   }
 });
@@ -68,24 +68,46 @@ app.post("/campgrounds",function(req,res){
 
 
 app.get("/campgrounds/new",function(req,res){
-res.render("new.ejs");
+res.render("campgrounds/new");
 });
 
 
 //Shows more information about campgrounds
 app.get("/campgrounds/:id",function(req,res){
   //find the campgrounds with provided id
-  Campground.findById(req.params.id,function(err,foundCampground){
+  Campground.findById(req.params.id).populate("comments").exec(function(err,foundCampground){
 if(err){
   console.log(err);
 }else{
+  console.log(foundCampground);
  //render show template
-res.render("show",{campground:foundCampground});
+res.render("campgrounds/show",{campground:foundCampground});
 }
   });
 
-  
 });
+
+
+
+
+// ===========================
+//  Comments routes
+// ===========================
+
+app.get("/campgrounds/:id/comments/new",function(req,res){
+  //find campground by id
+  Campground.findById(req.params.id,function(err,campground){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("comments/new",{campground:campground});
+    }
+
+  });
+     res.render("comments/new");
+});
+
+
 
 app.listen(3000,function(){
  console.log("yeay");
