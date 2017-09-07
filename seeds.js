@@ -29,14 +29,16 @@ function seedDB(){
             console.log(err);
         }
         console.log("Removed all the datas");
+        
         //add few campgrounds 
     data.forEach(function(seed){
         Campground.create(seed, function(err,campground){
          if(err){
              console.log(err);
+           
          }else{
              console.log("added");
-
+            
              //create a campground
              Comment.create({
                  text: "This place is the best place to visit",
@@ -44,6 +46,8 @@ function seedDB(){
              },function(err,comment){
                    if(err){
                        console.log(err);
+                       
+                       
                    }
                    else{
                campground.comments.push(comment);
@@ -56,7 +60,6 @@ function seedDB(){
         });
        });
      Campground.create({})
-   
     });
 
     
