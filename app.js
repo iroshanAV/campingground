@@ -104,7 +104,7 @@ app.get("/campgrounds/:id/comments/new",function(req,res){
     }
 
   });
-     res.render("comments/new");
+    // res.render("comments/new");
 });
 
 
