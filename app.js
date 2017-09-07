@@ -16,18 +16,6 @@ app.use(express.static(__dirname+"/public"));
 
 seedDB();
 
-// Campground.create(
-//   {name: "Kandy", 
-//   image:"https://lanka.com/wp-content/uploads/2014/03/sri-dalada-maligawa-kandy-sri-lanka-8.jpg",
-//   description:"Best place to visit in central province."
-// },function(err,Campground){
-//     if(err){
-//       onsole.log(err);
-//     }else{
-//       console.log("Newly created campground");
-//       console.log(Campground);
-//     }
-//   });
 
 
 
