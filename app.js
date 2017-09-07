@@ -11,7 +11,9 @@ var Comment = require("./models/comment");
 
 mongoose.connect("mongodb://help:help123@ds121674.mlab.com:21674/help_camo");
 app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine","ejs")
+app.set("view engine","ejs");
+app.use(express.static(__dirname+"/public"));
+
 seedDB();
 
 // Campground.create(

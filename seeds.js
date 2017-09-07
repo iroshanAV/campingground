@@ -8,17 +8,17 @@ var data = [
     {
     name: "Matara",
     image: "https://i.ytimg.com/vi/cXKMMjWifaw/maxresdefault.jpg",
-    description:"Best place to visit in south"
+    description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
     },
     {
         name: "Bentota",
         image:"http://www.leisureisland.lk/assets/images/bentota1.jpg",
-        description:"Amazing puppets"
+        description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
     },
     {
         name: "Negambo",
         image: "http://holidaysinsrilanka.net/images/159-The_West_Coast___Negombo-154590-Main_banner-TWC-Negombo.jpg",
-        description:"Good fish to buy"
+        description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
     }
 ];
 
