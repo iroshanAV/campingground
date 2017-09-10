@@ -1,4 +1,3 @@
 # campingground
-Add your favorite camping spaces, share your best moments. (still under developing phase)
-
+Add your favorite camping spaces, share your best moments.
 Built with: Nodejs,MongoDB
