@@ -25,41 +25,41 @@ var data = [
 function seedDB(){
     //Remove all campgrounds
     Campground.remove({},function(err){
-        if(err){
-            console.log(err);
-        }
-        console.log("Removed all the datas");
+    //     if(err){
+    //         console.log(err);
+    //     }
+    //     console.log("Removed all the datas");
         
-        //add few campgrounds 
-    data.forEach(function(seed){
-        Campground.create(seed, function(err,campground){
-         if(err){
-             console.log(err);
+    //     //add few campgrounds 
+    // data.forEach(function(seed){
+    //     Campground.create(seed, function(err,campground){
+    //      if(err){
+    //          console.log(err);
            
-         }else{
-             console.log("added");
+    //      }else{
+    //          console.log("added");
             
-             //create a campground
-             Comment.create({
-                 text: "This place is the best place to visit",
-                 author: "Homer"
-             },function(err,comment){
-                   if(err){
-                       console.log(err);
+    //          //create a campground
+    //          Comment.create({
+    //              text: "This place is the best place to visit",
+    //              author: "Homer"
+    //          },function(err,comment){
+    //                if(err){
+    //                    console.log(err);
                        
                        
-                   }
-                   else{
-               campground.comments.push(comment);
-               campground.save();
-               console.log("Created a new comment");
-                       }
+    //                }
+    //                else{
+    //            campground.comments.push(comment);
+    //            campground.save();
+    //            console.log("Created a new comment");
+    //                    }
             
-            });
-         }
-        });
-       });
-     Campground.create({})
+    //         });
+    //      }
+    //     });
+    //    });
+    //  Campground.create({})
 
     });
 
