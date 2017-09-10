@@ -60,6 +60,7 @@ function seedDB(){
         });
        });
      Campground.create({})
+
     });
 
     
